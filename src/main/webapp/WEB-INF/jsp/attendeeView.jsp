@@ -3,18 +3,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>WebShop</title>
-	<link rel="stylesheet" href="css/simple.css">
+	<title>DeltagerListe</title>
 </head>
 
 <body>
-	<p>Du er innlogget som <c:out value="${username}"/><br>
-	Totalt i handlekurv: kr ${cart.total}</p>
+	<p>Du er innlogget som <c:out value="${person.phone}"/><br>
+	<!--Totalt i handlekurv: kr ${cart.total}</p>-->
 	<table><tr>
 			<th>Kjønn</th>
 			<th>Navn</th>
 			<th>Mobil</th>
 		</tr>
+		<c:forEach var="item" items="${cart.items}"><tr>
+			<td>${item.name}</td>
+			<td>${item.price}</td>
+			<td>${item.quantity}</td>
+			<td>${item.price * item.quantity}</td>
+		</tr></c:forEach>
 		<c:forEach var="item" items="${cart.items}"><tr>
 			<td>${item.name}</td>
 			<td>${item.price}</td>

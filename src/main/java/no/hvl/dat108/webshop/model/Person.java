@@ -7,11 +7,10 @@ public class Person {
     private String password;
     private String gender;
 
-    public Person(String firstName, String lastName, String phone, String password, String gender) {
+    public Person(String firstName, String lastName, String phone, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone; //Skal antegelig være integer
-        this.password = password; //Må være hashet
         this.gender = gender; //Enum?
 
     }
@@ -22,5 +21,21 @@ public class Person {
         this.phone = username;
         this.password = pword;
         this.gender = "kvinne";
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 }
