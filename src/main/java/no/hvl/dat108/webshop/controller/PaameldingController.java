@@ -18,13 +18,14 @@ import javax.servlet.http.HttpServletRequest;
 public class PaameldingController {
 
     @Value("${app.url.paamelding}") private String REGISTER_URL;
+    @Value("${app.url.deltagerListe}") private String LIST_URL;
 
     @GetMapping
     public String getRegisterView(){ return "registerView"; }
 
     @PostMapping
     public String registerUser() {
-        return "redirect: " + listView;
+        return "redirect: " + LIST_URL;
     }
 
 }
