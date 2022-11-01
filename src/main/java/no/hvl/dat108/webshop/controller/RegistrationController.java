@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.persistence.Id;
+
 @Controller
 @RequestMapping("/${app.url.paamelding}")
 public class RegistrationController {
@@ -16,6 +18,8 @@ public class RegistrationController {
     //Har felter for Fornavn, Etternavn, Mobil, Passord, Passord repetert, kjønn
     private String firstName;
     private String lastName;
+
+    @Id
     private int phone;
     private String password;
     private String passwordRepeated;
