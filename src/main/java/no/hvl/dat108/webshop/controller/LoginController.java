@@ -26,7 +26,7 @@ public class LoginController {
 	 * GET /login er forespørselen for å hente login-skjema.
 	 */
 	@GetMapping
-    public String hentLoginSkjema() {
+    public String getLoginView() {
 		return "loginView";
     }
 
@@ -34,11 +34,11 @@ public class LoginController {
 	 * POST /login er forespørselen for å logge inn.
 	 */
 	@PostMapping
-    public String provAaLoggeInn(@RequestParam String firstName, String lastName, String phone, String pword, String pwordRep, String gender,
+    public String logIn(@RequestParam String firstName, String lastName, String phone, String pword, String pwordRep, String gender,
     		HttpServletRequest request,	RedirectAttributes ra) {
 
 		//Sjekke om pword og pwordRep er like, eller skal dette gjøres i js kode?
-		
+		//Alle feltene skal bare hentes under registrering, ikke innlogging
 		/*if (!InputValidator.isValidUsername(username)) {
 			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
 			return "redirect:" + LOGIN_URL;

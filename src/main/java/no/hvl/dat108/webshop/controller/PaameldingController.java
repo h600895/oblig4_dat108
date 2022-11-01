@@ -17,5 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/${app.url.paamelding}")
 public class PaameldingController {
 
+    @Value("${app.url.paamelding}") private String REGISTER_URL;
+
+    @GetMapping
+    public String getRegisterView(){ return "registerView"; }
+
+    @PostMapping
+    public String registerUser() {
+        return "redirect: " + listView;
+    }
 
 }
