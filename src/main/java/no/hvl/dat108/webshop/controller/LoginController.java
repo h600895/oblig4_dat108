@@ -20,7 +20,8 @@ public class LoginController {
 	
 	@Value("${app.message.invalidInfo}") private String INVALID_USERNAME_MESSAGE;
 	@Value("/${app.url.login}")   private String LOGIN_URL;
-	
+	@Value("/${app.url.attendeeList}")   private String ATTENDEELIST_URL;
+
 	/* 
 	 * GET /login er forespørselen for å hente login-skjema.
 	 */
@@ -33,8 +34,17 @@ public class LoginController {
 	 * POST /login er forespørselen for å logge inn.
 	 */
 	@PostMapping
-    public String logIn(@RequestParam String firstName, String lastName, String phone, String pword, String pwordRep, String gender,
+    public String logIn(@RequestParam String username, String pword,
     		HttpServletRequest request,	RedirectAttributes ra) {
+
+		//tilkoble database får å få ut info om brukeren
+		Person person = new Person(username, pword);
+
+		if (username.equals("admin") && pword.equals("password")) {
+
+			request.setAttribute("person", person);
+			return "redirect:" + ATTENDEELIST_URL;
+		}
 
 		//Sjekke om pword og pwordRep er like, eller skal dette gjøres i js kode?
 		//Alle feltene skal bare hentes under registrering, ikke innlogging
@@ -42,11 +52,11 @@ public class LoginController {
 			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
 			return "redirect:" + LOGIN_URL;
 		}*/
-		Person person = new Person(firstName, lastName, phone, pword, gender);
-		System.out.println(person);
+
+
 		LoginUtil.loggInnBruker(request, person);
 		//LoginUtil.loggInnBruker(request, username);
 		
-		return "redirect:" + "/login";
+		return "redirect:" + LOGIN_URL;
     }
 }
