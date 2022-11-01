@@ -20,7 +20,7 @@ public class LoginController {
 	
 	@Value("${app.message.invalidUsername}") private String INVALID_USERNAME_MESSAGE;
 	@Value("${app.url.login}")   private String LOGIN_URL;
-	@Value("${app.url.webshop}") private String WEBSHOP_URL;
+	//@Value("${app.url.webshop}") private String WEBSHOP_URL;
 	
 	/* 
 	 * GET /login er forespørselen for å hente login-skjema.
@@ -48,6 +48,6 @@ public class LoginController {
 		LoginUtil.loggInnBruker(request, person);
 		//LoginUtil.loggInnBruker(request, username);
 		
-		return "redirect:" + WEBSHOP_URL;
+		return "redirect:" + "/login";
     }
 }
