@@ -17,36 +17,5 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/${app.url.paamelding}")
 public class PaameldingController {
 
-	@Value("${app.message.invalidUsername}") private String INVALID_USERNAME_MESSAGE;
-	@Value("${app.url.login}")   private String LOGIN_URL;
-	@Value("${app.url.deltagerliste}") private String DELTAGERLISTE_URL;
 
-	/*
-	 * GET /login er forespørselen for å hente login-skjema.
-	 */
-	@GetMapping
-	public String hentLoginSkjema() {
-		return "paameldingView";
-	}
-
-	/*
-	 * POST /login er forespørselen for å logge inn.
-	 */
-	@PostMapping
-	public String provAaLoggeInn(@RequestParam String firstName, String lastName, String phone, String pword, String pwordRep, String gender,
-								 HttpServletRequest request,	RedirectAttributes ra) {
-
-		//Sjekke om pword og pwordRep er like, eller skal dette gjøres i js kode?
-
-		/*if (!InputValidator.isValidUsername(username)) {
-			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
-			return "redirect:" + LOGIN_URL;
-		}*/
-		Person person = new Person(firstName, lastName, phone, pword, gender);
-		System.out.println(person);
-		LoginUtil.loggInnBruker(request, person);
-		LoginUtil.loggInnBruker(request, person);
-
-		return "redirect:" + DELTAGERLISTE_URL;
-	}
 }
