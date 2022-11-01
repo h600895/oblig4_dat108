@@ -17,15 +17,15 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/${app.url.paamelding}")
 public class PaameldingController {
 
-    @Value("${app.url.paamelding}") private String REGISTER_URL;
-    @Value("${app.url.deltagerListe}") private String LIST_URL;
+    //@Value("${app.url.paamelding}") private String REGISTER_URL;
+    //@Value("${app.url.deltagerliste}") private String LIST_URL;
 
     @GetMapping
     public String getRegisterView(){ return "registerView"; }
 
     @PostMapping
     public String registerUser() {
-        return "redirect: " + LIST_URL;
+        return "redirect:" + "/login";
     }
 
 }
