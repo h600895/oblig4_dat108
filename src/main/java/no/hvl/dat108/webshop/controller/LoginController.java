@@ -18,9 +18,9 @@ import no.hvl.dat108.webshop.util.LoginUtil;
 @RequestMapping("/${app.url.login}")
 public class LoginController {
 	
-	@Value("${app.message.invalidUsername}") private String INVALID_USERNAME_MESSAGE;
-	@Value("${app.url.login}")   private String LOGIN_URL;
-	//@Value("${app.url.webshop}") private String WEBSHOP_URL;
+	@Value("${app.message.invalidInfo}") private String INVALID_USERNAME_MESSAGE;
+	@Value("/${app.url.login}")   private String LOGIN_URL;
+	@Value("/${app.url.webshop}") private String WEBSHOP_URL;
 	
 	/* 
 	 * GET /login er forespørselen for å hente login-skjema.
