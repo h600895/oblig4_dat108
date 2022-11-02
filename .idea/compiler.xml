@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="oblig4_dat108" />
+        <module name="Oblig4" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Oblig4" target="17" />
       <module name="oblig4_dat108" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Oblig4" options="-parameters" />
       <module name="oblig4_dat108" options="-parameters" />
     </option>
   </component>
