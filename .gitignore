@@ -1,5 +1,6 @@
 !.mvn/wrapper/maven-wrapper.jar
 .idea
+.compiler.xml
 .flattened-pom.xml
 .gradle
 *.sw?
