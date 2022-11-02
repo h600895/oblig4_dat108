@@ -1,13 +1,13 @@
 package no.hvl.dat108.webshop.model;
 
-public class Person {
+public class Attendee {
     private String firstName;
     private String lastName;
     private String phone;
     private String password;
     private String gender;
 
-    public Person(String firstName, String lastName, String phone, String gender) {
+    public Attendee(String firstName, String lastName, String phone, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone; //Skal antegelig være integer
@@ -15,7 +15,7 @@ public class Person {
 
     }
     //For debuging
-    public Person(String username, String pword) {
+    public Attendee(String username, String pword) {
         this.firstName = "Ole";
         this.lastName ="Olsen";
         this.phone = username;

@@ -2,7 +2,7 @@ package no.hvl.dat108.webshop.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import no.hvl.dat108.webshop.model.Person;
+import no.hvl.dat108.webshop.model.Attendee;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import no.hvl.dat108.webshop.util.InputValidator;
 import no.hvl.dat108.webshop.util.LoginUtil;
 
 @Controller
@@ -38,7 +37,7 @@ public class LoginController {
     		HttpServletRequest request,	RedirectAttributes ra) {
 
 		//tilkoble database får å få ut info om brukeren
-		Person person = new Person(username, pword);
+		Attendee person = new Attendee(username, pword);
 
 		if (!username.equals("12345678") && !pword.equals("password")) {
 			return "redirect:" + LOGIN_URL;

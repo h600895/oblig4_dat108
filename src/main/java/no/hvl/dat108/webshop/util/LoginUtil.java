@@ -3,10 +3,8 @@ package no.hvl.dat108.webshop.util;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import no.hvl.dat108.webshop.model.Cart;
 import no.hvl.dat108.webshop.model.Database;
-import no.hvl.dat108.webshop.model.Person;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import no.hvl.dat108.webshop.model.Attendee;
 
 public class LoginUtil {
 	
@@ -16,7 +14,7 @@ public class LoginUtil {
         session.invalidate();
 	}
 
-	public static void loginnUnser(HttpServletRequest request, Person person) {
+	public static void loginUnser(HttpServletRequest request, Attendee person) {
     	
         loggUtBruker(request.getSession());
 
