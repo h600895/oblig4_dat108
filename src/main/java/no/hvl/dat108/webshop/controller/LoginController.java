@@ -53,7 +53,7 @@ public class LoginController {
 
 
 
-		LoginUtil.loggInnBruker(request, person);
+		LoginUtil.loginUnser(request, person);
 		return "redirect:" + ATTENDEELIST_URL;
 		
 

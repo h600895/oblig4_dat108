@@ -16,7 +16,7 @@ public class LoginUtil {
 
 	public static void loginUnser(HttpServletRequest request, Attendee person) {
     	
-        loggUtBruker(request.getSession());
+        logoutUser(request.getSession());
 
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
