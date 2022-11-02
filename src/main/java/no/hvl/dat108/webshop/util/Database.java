@@ -10,9 +10,9 @@ import java.util.List;
 //Objektet som snakker med databasen
 public class Database {
 
-    @Autowired private AttendeeRepo attendeeRepo;
+    @Autowired static private AttendeeRepo attendeeRepo;
 
-    //Bare for testing, skal erstattes med database data.
+    //Bare for testing, skal slettes når databasen er på plass.
     public static List<Attendee> getAttendees() {
         List<Attendee> list = new ArrayList<>();
         list.add(new Attendee("Fornavn1", "Etternavn1", 12345678, "K"));
@@ -35,20 +35,21 @@ public class Database {
         return new Attendee();
     }*/
     //Legge til sort etter hvert
-    public List<Attendee> findAllAttendee() { return attendeeRepo.findAll();}
+    public static List<Attendee> findAllAttendee() { return attendeeRepo.findAll();}
 
-    public Attendee findByPhone(int phone) {return attendeeRepo.findByPhone(phone);}
+    public static Attendee findByPhone(int phone) {return attendeeRepo.findByPhone(phone);}
 
     //public void updateAttendee() {}
 
-    public Attendee createAttendee(String firstName, String lastName, int phone, String gender) {
+    public static Attendee createAttendee(String firstName, String lastName, int phone, String gender) {
         //Sjekk om attendeen allerede funnes -> send feilmedling om at bruker allerede finnes
         Attendee attendee = new Attendee(firstName, lastName, phone, gender);
         attendeeRepo.save(attendee);
         return attendee;
     }
 
-    public boolean doesPhoneExist(int phone) { return attendeeRepo.existsById(phone);}
+    //Returnerer true om den eksiterer
+    public static boolean doesPhoneExist(int phone) { return attendeeRepo.existsById(phone);}
 
 
 
