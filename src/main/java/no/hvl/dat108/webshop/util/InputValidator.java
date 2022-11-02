@@ -11,22 +11,31 @@ public class InputValidator {
     // Repetert passord: Må være likt passord.
     // Kjønn: Enten M eller K, ingenting annet.
 
-    public static final String ANY_LETTER = "[a-zA-ZæøåÆØÅ]";
-    public static final String ANY_LETTER_OR_DIGIT = "[a-zA-ZæøåÆØÅ0-9]";
-    public static final String THREE_OR_MORE_TIMES = "{3,}";
+    public static final String FIRST_NAME_VALIDATE = "^[A-ZÆØÅ]{1}[a-zA-ZæøåÆØÅ -]{2,20}";
+    public static final String LAST_NAME_VALIDATE = "^[A-ZÆØÅ]{1}[a-zA-ZæøåÆØÅ ]{2,20}";
+    public static final String PHONE_VALIDATE = "[0-9]{8}";
+    public static final String PASSWORD_VALIDATE = "^(?=.*[A-ZÆØÅ])(?=.*\\d)[A-Za-zæøåÆØÅ\\d]{8,}$";
+    public static final String GENDER_VALIDATE = "[MK]{1}";
 
-    /**
-     * 
-     * @param username Brukernavnet som skal valideres
-     * @return Om brukenavnet er gyldig eller ikke
-     * 
-     * Et gyldig brukernavn består av 4 eller flere tegn. Lovlige tegn
-     * er bokstaver (små og store) inkl. de norske bokstavene og tall.
-     * Brukernavnet kan ikke begynne med et tall.
-     */
-    public static boolean isValidUsername(String username) {
-    	return username != null && username.matches("^" + ANY_LETTER
-    			+ ANY_LETTER_OR_DIGIT + THREE_OR_MORE_TIMES + "$");
+    public static boolean isValidFirstName(String firstName){
+        return firstName != null && firstName.matches(FIRST_NAME_VALIDATE);
+    }
+
+    public static boolean isValidLastName(String lastName){
+        return lastName != null && lastName.matches(LAST_NAME_VALIDATE);
+    }
+
+    public static boolean isValidPhone(int phone){
+        String phoneString = Integer.toString(phone);
+        return phoneString != null && phoneString.matches(PHONE_VALIDATE);
+    }
+
+    public static boolean isValidPassword(String password){
+        return password != null && password.matches(PASSWORD_VALIDATE);
+    }
+
+    public static boolean isValidGender(String gender){
+        return gender != null && gender.matches(GENDER_VALIDATE);
     }
 }
 
