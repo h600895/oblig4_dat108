@@ -37,7 +37,8 @@ public class LoginController {
     		HttpServletRequest request,	RedirectAttributes ra) {
 
 		//tilkoble database får å få ut info om brukeren
-		Attendee person = new Attendee(username, pword);
+		int usernameInt = Integer.parseInt(username);
+		Attendee person = new Attendee(usernameInt, pword);
 
 		if (!username.equals("12345678") && !pword.equals("password")) {
 			return "redirect:" + LOGIN_URL;

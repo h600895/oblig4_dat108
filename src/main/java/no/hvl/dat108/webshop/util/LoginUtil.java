@@ -3,7 +3,6 @@ package no.hvl.dat108.webshop.util;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import no.hvl.dat108.webshop.model.Database;
 import no.hvl.dat108.webshop.model.Attendee;
 
 public class LoginUtil {
