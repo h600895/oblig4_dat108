@@ -40,10 +40,9 @@ public class LoginController {
 		//tilkoble database får å få ut info om brukeren
 		Person person = new Person(username, pword);
 
-		if (username.equals("admin") && pword.equals("password")) {
+		if (!username.equals("12345678") && !pword.equals("password")) {
+			return "redirect:" + LOGIN_URL;
 
-			request.setAttribute("person", person);
-			return "redirect:" + ATTENDEELIST_URL;
 		}
 
 		//Sjekke om pword og pwordRep er like, eller skal dette gjøres i js kode?
@@ -54,9 +53,10 @@ public class LoginController {
 		}*/
 
 
+
 		LoginUtil.loggInnBruker(request, person);
-		//LoginUtil.loggInnBruker(request, username);
+		return "redirect:" + ATTENDEELIST_URL;
 		
-		return "redirect:" + LOGIN_URL;
+
     }
 }

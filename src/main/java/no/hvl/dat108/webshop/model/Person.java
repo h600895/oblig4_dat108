@@ -16,11 +16,11 @@ public class Person {
     }
     //For debuging
     public Person(String username, String pword) {
-        this.firstName = "firstName";
-        this.lastName ="lastName";
+        this.firstName = "Ole";
+        this.lastName ="Olsen";
         this.phone = username;
         this.password = pword;
-        this.gender = "kvinne";
+        this.gender = "Mann";
     }
 
     public String getFirstName() {

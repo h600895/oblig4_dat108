@@ -7,24 +7,16 @@
 </head>
 
 <body>
-	<p>Du er innlogget som <c:out value="${person.phone}"/><br>
-	<!--Totalt i handlekurv: kr ${cart.total}</p>-->
+	<p>Du er innlogget som <c:out value="${person.phone} / ${person.firstName} ${person.lastName}"/><br>
 	<table><tr>
 			<th>Kjønn</th>
 			<th>Navn</th>
 			<th>Mobil</th>
 		</tr>
-		<c:forEach var="item" items="${cart.items}"><tr>
-			<td>${item.name}</td>
-			<td>${item.price}</td>
-			<td>${item.quantity}</td>
-			<td>${item.price * item.quantity}</td>
-		</tr></c:forEach>
-		<c:forEach var="item" items="${cart.items}"><tr>
-			<td>${item.name}</td>
-			<td>${item.price}</td>
-			<td>${item.quantity}</td>
-			<td>${item.price * item.quantity}</td>
+		<c:forEach var="item" items="${appendees}"><tr>
+			<td>${item.gender}</td>
+			<td>${item.firstName}</td>
+			<td>${item.phone}</td>
 		</tr></c:forEach>
 	</table><br>
 
