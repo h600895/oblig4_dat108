@@ -78,6 +78,8 @@ public class RegistrationController {
 
     @PostMapping
     public String registerUser() {
+
+
         return "redirect:" + LIST_URL;
     }
 
