@@ -6,20 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.persistence.Id;
-
 @Controller
-@RequestMapping("/${app.url.paamelding}")
+@RequestMapping("/${app.url.registration}")
 public class RegistrationController {
 
-    @Value("/${app.url.paamelding}") private String REGISTER_URL;
-    @Value("/${app.url.deltagerliste}") private String LIST_URL;
+    @Value("/${app.url.registration}") private String REGISTER_URL;
+    @Value("/${app.url.attendeeList}") private String ATTENDEELIST_URL;
 
     //Har felter for Fornavn, Etternavn, Mobil, Passord, Passord repetert, kjønn
     private String firstName;
     private String lastName;
-
-    @Id
     private int phone;
     private String password;
     private String passwordRepeated;
@@ -78,9 +74,7 @@ public class RegistrationController {
 
     @PostMapping
     public String registerUser() {
-
-
-        return "redirect:" + LIST_URL;
+        return "redirect:" + ATTENDEELIST_URL;
     }
 
 }
