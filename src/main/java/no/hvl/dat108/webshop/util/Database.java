@@ -48,6 +48,8 @@ public class Database {
         return attendee;
     }
 
+    public boolean doesPhoneExist(int phone) { return attendeeRepo.existsById(phone);}
+
 
 
 }
