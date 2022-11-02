@@ -7,6 +7,8 @@
 
 <h1>Logg inn</h1>
 
+<p style="color:red">${redirectMessage}</p>
+
 
 <form action="login" method="post">
 	<fieldset>

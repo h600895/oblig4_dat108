@@ -20,18 +20,8 @@
 		</tr></c:forEach>
 	</table><br>
 
-	<form action="webshop" method="post">
-	  <fieldset><legend>Handle</legend>
-	       <input type="checkbox" name="vare" value="bukse" />Bukse<br/>
-	       <input type="checkbox" name="vare" value="genser" />Genser<br/>
-	    <p><input type="submit" value="Legg i handlekurv" /></p>
-	  </fieldset>
-	</form>
-
 	<form action="logout" method="post">
-	  <fieldset>
 	  		<p><input type="submit" value="Logg ut" /></p>
-	  </fieldset>
 	</form>
 </body>
 
