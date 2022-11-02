@@ -12,11 +12,11 @@ public class LoginUtil {
 	
 	private final static int MAX_INTERACTIVE_INTERVAL = 60;
 
-	public static void loggUtBruker(HttpSession session) {
+	public static void logoutUser(HttpSession session) {
         session.invalidate();
 	}
 
-	public static void loggInnBruker(HttpServletRequest request, Person person) {
+	public static void loginnUnser(HttpServletRequest request, Person person) {
     	
         loggUtBruker(request.getSession());
 
@@ -26,7 +26,7 @@ public class LoginUtil {
 		session.setAttribute("appendees", Database.getAttendees());
 	}
 	
-	public static boolean erBrukerInnlogget(HttpSession session) {
+	public static boolean isUserLoggedIn(HttpSession session) {
 		return session != null 
 				&& session.getAttribute("person") != null
 				&& session.getAttribute("appendees") != null;
