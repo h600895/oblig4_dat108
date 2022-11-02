@@ -25,11 +25,11 @@ public class Attendee {
         this.lastName = lastName;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
@@ -49,7 +49,7 @@ public class Attendee {
         this.gender = gender;
     }
 
-    public Attendee(String firstName, String lastName, String phone, String gender) {
+    public Attendee(String firstName, String lastName, int phone, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone; //Skal antegelig være integer
@@ -57,7 +57,7 @@ public class Attendee {
 
     }
     //For debuging
-    public Attendee(String username, String pword) {
+    public Attendee(int username, String pword) {
         this.firstName = "Ole";
         this.lastName ="Olsen";
         this.phone = username;
