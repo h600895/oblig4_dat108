@@ -43,6 +43,7 @@ public class Database {
 
     public static Attendee createAttendee(String firstName, String lastName, int phone, String gender) {
         //Sjekk om attendeen allerede funnes -> send feilmedling om at bruker allerede finnes
+        //TODO-Må også ta inn passord
         Attendee attendee = new Attendee(firstName, lastName, phone, gender);
         attendeeRepo.save(attendee);
         return attendee;
