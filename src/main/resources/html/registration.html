@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:8080/paamelding -->
+<html lang="no"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../static/css/simple.css" rel="stylesheet" type="text/css">
+<!-- <script src="js/myscript.js" defer></script>  -->  
+	<title>Påmelding</title>
+</head>
+
+<body>
+	<h2>Påmelding</h2>
+	
+	<form id="deltagerFormBean" action="http://localhost:8080/paamelding" method="post">
+		<fieldset>
+		
+			<label for="firstName">Fornavn</label>
+			<!-- NB! Spring sin (form:input)-tag støtter ikke required alene, 
+			     men greit med required="noe"! -->
+			<input id="firstName" name="firstName" title="..." pattern=".*" placeholder="Fyll inn fornavn" required="required" type="text" value="">
+            
+            
+            <label for="etternavn">Etternavn</label> 
+            <input id="etternavn" name="lastName" title="..." pattern=".*" placeholder="Fyll inn etternavn" required="required" type="text" value="">
+            
+            
+            <label for="mobil">Mobil (8 siffer)</label>  
+            <input id="mobil" name="phone" title="..." pattern=".*" placeholder="Fyll inn telefonnummer" required="required" type="text" value="">
+            
+
+            <label for="passord">Passord</label> 
+            <input id="passord" name="pword" title="..." pattern=".*" placeholder="Velg et passord" type="password" required="required" value="">
+            
+            
+            <label for="passordRepetert">Passord repetert</label> 
+            <input id="passordRepetert" name="pwordRep" title="..." pattern=".*" placeholder="Gjenta passord" type="password" required="required" value="">
+            
+            
+			<label for="kjonn">Kjønn:</label> 
+			<input id="kjonn1" name="gender" checked="checked" type="radio" value="mann">mann
+			<input id="kjonn2" name="gender" type="radio" value="kvinne">kvinne
+			     
+			<br><br><button type="submit">Meld meg på</button>
+		</fieldset>
+	</form>
+
+
+</body></html>
