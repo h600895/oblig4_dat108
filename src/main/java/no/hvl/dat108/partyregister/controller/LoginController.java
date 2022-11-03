@@ -3,6 +3,8 @@ package no.hvl.dat108.partyregister.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import no.hvl.dat108.partyregister.model.Attendee;
+import no.hvl.dat108.partyregister.util.Database;
+import no.hvl.dat108.partyregister.util.RegistrationUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,8 @@ public class LoginController {
 	@Value("/${app.url.login}")   private String LOGIN_URL;
 	@Value("/${app.url.attendeeList}")   private String ATTENDEELIST_URL;
 
+	Database database = new Database();
+
 	/* 
 	 * GET /login er forespørselen for å hente login-skjema.
 	 */
@@ -33,16 +37,23 @@ public class LoginController {
 	 * POST /login er forespørselen for å logge inn.
 	 */
 	@PostMapping
-    public String logIn(@RequestParam String username, String pword,
+    public String logIn(@RequestParam String phone, @RequestParam String pword,
     		HttpServletRequest request,	RedirectAttributes ra) {
 
 		//tilkoble database får å få ut info om brukeren
-		int usernameInt = Integer.parseInt(username);
-		Attendee person = new Attendee(usernameInt, pword);
-
-		if (!username.equals("12345678") && !pword.equals("password")) {
+		int usernameInt = Integer.parseInt(phone);
+		Attendee attendee = database.findByPhone(usernameInt);
+		if(attendee == null){
+			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
 			return "redirect:" + LOGIN_URL;
+		}
+		byte[] attendeeSalt = attendee.getSalt();
+		String savedHash = attendee.getHash();
+		String newHash = RegistrationUtil.hashPassword(pword, attendeeSalt);
 
+		if (!savedHash.equals(newHash)) {
+			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
+			return "redirect:" + LOGIN_URL;
 		}
 
 		//Sjekke om pword og pwordRep er like, eller skal dette gjøres i js kode?
@@ -54,7 +65,7 @@ public class LoginController {
 
 
 
-		LoginUtil.loginUnser(request, person);
+		LoginUtil.loginUser(request, attendee);
 		return "redirect:" + ATTENDEELIST_URL;
 		
 

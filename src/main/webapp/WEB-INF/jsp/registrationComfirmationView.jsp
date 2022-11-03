@@ -9,9 +9,9 @@
 
 <body>
 	<p>Påmeldingen er mottatt for
-		<c:out value="${firstName} ${lastName}"/>
-		<c:out value="${phone}"/>
-		<c:out value="${gender}"/><br>
+		<c:out value="${person.firstName} ${person.lastName}"/><br/>
+		<c:out value="${person.phone}"/><br/>
+		<c:out value="${person.gender}"/><br/><p/>
 	
 	<form action="attendeeList" method="post">
 	  <fieldset>

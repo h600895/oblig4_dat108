@@ -13,14 +13,14 @@ public class LoginUtil {
         session.invalidate();
 	}
 
-	public static void loginUnser(HttpServletRequest request, Attendee person) {
+	public static void loginUser(HttpServletRequest request, Attendee person) {
     	
         logoutUser(request.getSession());
 
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
         session.setAttribute("person", person);
-		session.setAttribute("attendees", Database.getAttendees());
+		//session.setAttribute("attendees", Database.getAttendees());
 	}
 	
 	public static boolean isUserLoggedIn(HttpSession session) {

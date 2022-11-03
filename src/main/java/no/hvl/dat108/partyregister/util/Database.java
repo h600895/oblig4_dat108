@@ -12,10 +12,10 @@ import java.util.List;
 @Service
 public class Database {
 
-    @Autowired static private AttendeeRepo attendeeRepo;
+    @Autowired private AttendeeRepo attendeeRepo;
 
     //Bare for testing, skal slettes når databasen er på plass.
-    public static List<Attendee> getAttendees() {
+    /*public static List<Attendee> getAttendees() {
         List<Attendee> list = new ArrayList<>();
         list.add(new Attendee("Fornavn1", "Etternavn1", 12345678, "1234", "K"));
         list.add(new Attendee("Fornavn2", "Etternavn2", 12345677, "1234","M"));
@@ -24,7 +24,7 @@ public class Database {
         list.add(new Attendee("Fornavn5", "Etternavn5", 12345674, "1234","K"));
         list.add(new Attendee("Fornavn6", "Etternavn6", 12345673,"1234", "K"));
         return list;
-    }
+    }*/
 
 
     /*public static Attendee createAttendee(String firstName, String lastName, int phone, String gender) {
@@ -37,20 +37,20 @@ public class Database {
         return new Attendee();
     }*/
     //Legge til sort etter hvert
-    public static List<Attendee> findAllAttendee() { return attendeeRepo.findAll();}
+    public List<Attendee> findAllAttendee() { return attendeeRepo.findAll();}
 
-    public static Attendee findByPhone(int phone) {return attendeeRepo.findByPhone(phone);}
+    public Attendee findByPhone(int phone) {return attendeeRepo.findByPhone(phone);}
 
     //public void updateAttendee() {}
 
-    public static Attendee createAttendee(String firstName, String lastName, int phone, String password, String gender) {
-        Attendee attendee = new Attendee(firstName, lastName, phone, password, gender);
+    public Attendee createAttendee(String firstName, String lastName, int phone, String hash, byte[] salt, String gender) {
+        Attendee attendee = new Attendee(firstName, lastName, phone, hash, salt, gender);
         attendeeRepo.save(attendee);
         return attendee;
     }
 
     //Returnerer true om den eksiterer
-    public static boolean doesPhoneExist(int phone) { return attendeeRepo.existsById(phone);}
+    public boolean doesPhoneExist(int phone) { return attendeeRepo.existsById(phone);}
 
 
 

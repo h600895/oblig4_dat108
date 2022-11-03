@@ -13,8 +13,8 @@
 <form action="login" method="post">
 	<fieldset>
 
-		<label for="username">Brukernavn:</label><br>
-		<input type="text" name="username" id="username" placeholder="12345678"/><br>
+		<label for="phone">Telefon-nummer:</label><br>
+		<input type="text" name="phone" id="phone" placeholder="12345678"/><br>
 		<label for="pword">Passord:</label><br>
 		<input type="password" name="pword" id="pword" placeholder="password"/><br>
 		<input type="submit" value="Logg inn"/><br>

@@ -16,7 +16,7 @@ CREATE TABLE attendee
     lastName VARCHAR(20) NOT NULL,
     phone INTEGER(8) PRIMARY KEY,
     passwordHash VARCHAR(200) NOT NULL,
-    passwordSalt VARCHAR(200) NOT NULL,
+    passwordSalt BYTEA NOT NULL,
     gender CHAR CHECK (gender='M' OR gender='K') NOT NULL,
 );
 
