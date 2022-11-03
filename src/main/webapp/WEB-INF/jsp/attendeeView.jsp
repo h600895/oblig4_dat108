@@ -15,7 +15,7 @@
 		</tr>
 		<c:forEach var="item" items="${attendees}"><tr>
 			<td>${item.gender}</td>
-			<td>${item.firstName}</td>
+			<td>${item.firstName} ${item.lastName}</td>
 			<td>${item.phone}</td>
 		</tr></c:forEach>
 	</table><br>
