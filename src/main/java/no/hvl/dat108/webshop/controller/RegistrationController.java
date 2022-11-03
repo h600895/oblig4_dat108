@@ -14,21 +14,26 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/${app.url.paamelding}")
 public class RegistrationController {
 
-    @Value("/${app.url.paamelding}") private String REGISTER_URL;
-    @Value("/${app.url.deltagerliste}") private String LIST_URL;
+    @Value("/${app.url.registration}") private String REGISTER_URL;
+    @Value("/${app.url.attendeeList}") private String LIST_URL;
     @Value("/${app.message.unequalPassword}") private String UNEQUAL_PASSWORD_MESSAGE;
     @Value("/${app.message.phoneAlreadyUsed}") private String PHONE_ALREADY_USED_MESSAGE;
     @Value("/${app.message.invalidRegistration}") private String INVALID_REGISTRATION_MESSAGE;
 
     @GetMapping
-    public String getRegisterView(){ return "registerView"; }
+    public String getRegisterView(){ return "registrationView"; }
 
-    @PostMapping
-    public String registerAttendee(@RequestParam String firstName, String lastName, int phone, String password,
-                                   String passwordRepeated, String gender, RedirectAttributes ra) {
+    @PostMapping(value="/registration")
+    public String registerAttendee(@RequestParam String firstName,
+                                   @RequestParam String lastName,
+                                   @RequestParam int phone,
+                                   @RequestParam String pword,
+                                   @RequestParam String pwordRep,
+                                   @RequestParam String gender,
+                                   RedirectAttributes ra) {
         // Valider brukeren sin info, send infoen videre til Database for å lage attendee-objekt.
         // Sjekk at passordene vi får inn stemmer.
-        if(!password.equals(passwordRepeated)){
+        if(!pword.equals(pwordRep)){
             ra.addFlashAttribute("redirectMessage", UNEQUAL_PASSWORD_MESSAGE);
             return "redirect: " + REGISTER_URL;
         }
@@ -38,7 +43,7 @@ public class RegistrationController {
             return "redirect: " + REGISTER_URL;
         }
         if(!InputValidator.isValidFirstName(firstName) || !InputValidator.isValidLastName(lastName) ||
-        !InputValidator.isValidPhone(phone) || !InputValidator.isValidPassword(password) || !InputValidator.isValidGender(gender)){
+        !InputValidator.isValidPhone(phone) || !InputValidator.isValidPassword(pword) || !InputValidator.isValidGender(gender)){
             ra.addFlashAttribute("redirectMessage", INVALID_REGISTRATION_MESSAGE);
             return "redirect: " + REGISTER_URL;
         }
