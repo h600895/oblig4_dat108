@@ -7,7 +7,7 @@ public interface AttendeeRepo extends JpaRepository<Attendee, Integer> {
 
     Attendee findByPhone(int phone);
 
-    Attendee setAttendee(Attendee attendee);
+    //Attendee setAttendee(Attendee attendee);
 
 
 

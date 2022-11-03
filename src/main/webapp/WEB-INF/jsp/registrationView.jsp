@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Påmelding</h1>
-	
+	<p>${redirectMessage}</p>
 	<form action="registration" method="post">
 		<fieldset>
 			<table>

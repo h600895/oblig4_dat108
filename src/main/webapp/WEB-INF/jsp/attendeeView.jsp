@@ -13,7 +13,7 @@
 			<th>Navn</th>
 			<th>Mobil</th>
 		</tr>
-		<c:forEach var="item" items="${appendees}"><tr>
+		<c:forEach var="item" items="${attendees}"><tr>
 			<td>${item.gender}</td>
 			<td>${item.firstName}</td>
 			<td>${item.phone}</td>
