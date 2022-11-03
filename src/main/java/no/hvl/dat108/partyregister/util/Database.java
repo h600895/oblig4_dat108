@@ -3,11 +3,13 @@ package no.hvl.dat108.partyregister.util;
 
 import no.hvl.dat108.partyregister.model.Attendee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 //Objektet som snakker med databasen
+@Service
 public class Database {
 
     @Autowired static private AttendeeRepo attendeeRepo;
@@ -42,8 +44,6 @@ public class Database {
     //public void updateAttendee() {}
 
     public static Attendee createAttendee(String firstName, String lastName, int phone, String password, String gender) {
-        //Sjekk om attendeen allerede funnes -> send feilmedling om at bruker allerede finnes
-        //TODO-Må også ta inn passord
         Attendee attendee = new Attendee(firstName, lastName, phone, password, gender);
         attendeeRepo.save(attendee);
         return attendee;

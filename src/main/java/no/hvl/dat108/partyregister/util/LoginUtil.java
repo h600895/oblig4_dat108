@@ -20,13 +20,13 @@ public class LoginUtil {
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
         session.setAttribute("person", person);
-		session.setAttribute("appendees", Database.getAttendees());
+		session.setAttribute("attendees", Database.getAttendees());
 	}
 	
 	public static boolean isUserLoggedIn(HttpSession session) {
 		return session != null 
 				&& session.getAttribute("person") != null
-				&& session.getAttribute("appendees") != null;
+				&& session.getAttribute("attendees") != null;
 	}
 
 }
