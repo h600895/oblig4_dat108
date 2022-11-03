@@ -1,7 +1,11 @@
-package no.hvl.dat108.webshop.model;
+package no.hvl.dat108.partyregister.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "attendee")
 public class Attendee {
     private String firstName;
     private String lastName;
@@ -11,12 +15,35 @@ public class Attendee {
     private String password;
     private String gender;
 
+    public Attendee(String firstName, String lastName, int phone, String password, String gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.password = password;
+        this.gender = gender;
+
+    }
+    //For debuging
+    public Attendee(int username, String pword) {
+        this.firstName = "Ole";
+        this.lastName ="Olsen";
+        this.phone = username;
+        this.password = pword;
+        this.gender = "Mann";
+    }
+
+    public Attendee(){
+
+    }
+
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
@@ -49,21 +76,7 @@ public class Attendee {
         this.gender = gender;
     }
 
-    public Attendee(String firstName, String lastName, int phone, String gender) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone; //Skal antegelig være integer
-        this.gender = gender; //Enum?
 
-    }
-    //For debuging
-    public Attendee(int username, String pword) {
-        this.firstName = "Ole";
-        this.lastName ="Olsen";
-        this.phone = username;
-        this.password = pword;
-        this.gender = "Mann";
-    }
 
 
 

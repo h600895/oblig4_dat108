@@ -1,6 +1,6 @@
-package no.hvl.dat108.webshop.controller;
+package no.hvl.dat108.partyregister.controller;
 
-import no.hvl.dat108.webshop.util.LoginUtil;
+import no.hvl.dat108.partyregister.util.LoginUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class AttendeeController {
     @GetMapping
     public String showAttendees(HttpSession session, RedirectAttributes ra) {
 
-        if (!LoginUtil.erBrukerInnlogget(session)) {
+        if (!LoginUtil.isUserLoggedIn(session)) {
             ra.addFlashAttribute("redirectMessage", REQUIRES_LOGIN_MESSAGE);
             return "redirect:" + LOGIN_URL;
         }

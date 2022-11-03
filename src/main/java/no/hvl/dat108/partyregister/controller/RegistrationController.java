@@ -1,7 +1,7 @@
-package no.hvl.dat108.webshop.controller;
+package no.hvl.dat108.partyregister.controller;
 
-import no.hvl.dat108.webshop.util.Database;
-import no.hvl.dat108.webshop.util.InputValidator;
+import no.hvl.dat108.partyregister.util.Database;
+import no.hvl.dat108.partyregister.util.InputValidator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +47,7 @@ public class RegistrationController {
             ra.addFlashAttribute("redirectMessage", INVALID_REGISTRATION_MESSAGE);
             return "redirect: " + REGISTER_URL;
         }
-        Database.createAttendee(firstName, lastName, phone, gender);
+        Database.createAttendee(firstName, lastName, phone, pword, gender);
         return "redirect:" + LIST_URL;
     }
 
