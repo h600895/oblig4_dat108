@@ -12,11 +12,11 @@ SET search_path TO attendee;
 
 CREATE TABLE attendee
 (
-    firstName VARCHAR(20) NOT NULL,
-    lastName VARCHAR(20) NOT NULL,
+    first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(20) NOT NULL,
     phone INTEGER PRIMARY KEY,
-    passwordHash VARCHAR(200) NOT NULL,
-    passwordSalt BYTEA NOT NULL,
+    password_hash VARCHAR(200) NOT NULL,
+    password_salt BYTEA NOT NULL,
     gender CHAR CHECK (gender='M' OR gender='K') NOT NULL
 );
 
