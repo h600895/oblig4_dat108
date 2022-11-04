@@ -47,8 +47,8 @@ public class LoginController {
 			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
 			return "redirect:" + LOGIN_URL;
 		}
-		byte[] attendeeSalt = attendee.getSalt();
-		String savedHash = attendee.getHash();
+		byte[] attendeeSalt = attendee.getPassword_salt();
+		String savedHash = attendee.getPassword_hash();
 		String newHash = RegistrationUtil.hashPassword(pword, attendeeSalt);
 
 		if (!savedHash.equals(newHash)) {

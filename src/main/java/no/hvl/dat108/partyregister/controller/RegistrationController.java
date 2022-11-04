@@ -1,34 +1,29 @@
 package no.hvl.dat108.partyregister.controller;
 
 import no.hvl.dat108.partyregister.model.Attendee;
-import no.hvl.dat108.partyregister.util.Database;
-import no.hvl.dat108.partyregister.util.InputValidator;
-import no.hvl.dat108.partyregister.util.LoginUtil;
-import no.hvl.dat108.partyregister.util.RegistrationUtil;
+import no.hvl.dat108.partyregister.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.security.NoSuchAlgorithmException;
 
 @Controller
 @RequestMapping("/registration")
 public class RegistrationController {
-
     @Value("/${app.url.registration}") private String REGISTER_URL;
     @Value("/${app.url.attendeeList}") private String LIST_URL;
     @Value("/${app.url.registrationConfirmation}") private String CONFIRMATION_URL;
     @Value("${app.message.unequalPassword}") private String UNEQUAL_PASSWORD_MESSAGE;
     @Value("${app.message.phoneAlreadyUsed}") private String PHONE_ALREADY_USED_MESSAGE;
     @Value("${app.message.invalidRegistration}") private String INVALID_REGISTRATION_MESSAGE;
+
+    @Autowired AttendeeService attendeeService;
 
     Database database = new Database();
 
@@ -70,7 +65,8 @@ public class RegistrationController {
         String hash = RegistrationUtil.hashPassword(pword, salt);
         System.out.println(salt.toString());
         System.out.println(hash);
-        Attendee attendee = database.createAttendee(firstName, lastName, phoneInt, hash, salt, gender);
+        Attendee attendee = new Attendee(firstName, lastName, phoneInt, hash, salt, gender);
+        attendeeService.createAttendee(attendee);
         LoginUtil.loginUser(request, attendee);
         return "redirect:" + CONFIRMATION_URL;
     }

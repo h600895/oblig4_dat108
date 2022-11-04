@@ -3,16 +3,15 @@ package no.hvl.dat108.partyregister.util;
 
 import no.hvl.dat108.partyregister.model.Attendee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 //Objektet som snakker med databasen
-@Service
+@Controller
 public class Database {
 
-    @Autowired private AttendeeRepo attendeeRepo;
+    @Autowired private AttendeeService attendeeService;
 
     //Bare for testing, skal slettes når databasen er på plass.
     /*public static List<Attendee> getAttendees() {
@@ -37,20 +36,26 @@ public class Database {
         return new Attendee();
     }*/
     //Legge til sort etter hvert
-    public List<Attendee> findAllAttendee() { return attendeeRepo.findAll();}
+    public List<Attendee> findAllAttendee() { return attendeeService.findAllAttendees();}
 
-    public Attendee findByPhone(int phone) {return attendeeRepo.findByPhone(phone);}
+    public Attendee findByPhone(int phone) {return attendeeService.findAttendeeWithPhone(phone);}
 
     //public void updateAttendee() {}
-
     public Attendee createAttendee(String firstName, String lastName, int phone, String hash, byte[] salt, String gender) {
         Attendee attendee = new Attendee(firstName, lastName, phone, hash, salt, gender);
-        attendeeRepo.save(attendee);
+        attendeeService.createAttendee(attendee);
         return attendee;
     }
 
     //Returnerer true om den eksiterer
-    public boolean doesPhoneExist(int phone) { return attendeeRepo.existsById(phone);}
+    public boolean doesPhoneExist(int phone) {
+
+        if(attendeeService.findAttendeeWithPhone(phone) == null){
+            return false;
+        }
+        return true;
+
+    }
 
 
 
