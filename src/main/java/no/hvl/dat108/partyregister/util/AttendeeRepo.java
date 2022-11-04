@@ -4,8 +4,7 @@ import no.hvl.dat108.partyregister.model.Attendee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AttendeeRepo extends JpaRepository<Attendee, Integer> {
-
-    Attendee findByPhone(int phone);
+    //Attendee findByPhone(int phone);
 
     //Attendee setAttendee(Attendee attendee);
 
