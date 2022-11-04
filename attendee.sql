@@ -14,10 +14,10 @@ CREATE TABLE attendee
 (
     firstName VARCHAR(20) NOT NULL,
     lastName VARCHAR(20) NOT NULL,
-    phone INTEGER(8) PRIMARY KEY,
+    phone INTEGER PRIMARY KEY,
     passwordHash VARCHAR(200) NOT NULL,
     passwordSalt BYTEA NOT NULL,
-    gender CHAR CHECK (gender='M' OR gender='K') NOT NULL,
+    gender CHAR CHECK (gender='M' OR gender='K') NOT NULL
 );
 
 --
