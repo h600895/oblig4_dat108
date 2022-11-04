@@ -3,8 +3,10 @@ package no.hvl.dat108.partyregister.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import no.hvl.dat108.partyregister.model.Attendee;
+import no.hvl.dat108.partyregister.util.AttendeeService;
 import no.hvl.dat108.partyregister.util.Database;
 import no.hvl.dat108.partyregister.util.RegistrationUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,8 @@ public class LoginController {
 	@Value("/${app.url.login}")   private String LOGIN_URL;
 	@Value("/${app.url.attendeeList}")   private String ATTENDEELIST_URL;
 
-	Database database = new Database();
+	@Autowired
+	AttendeeService attendeeService;
 
 	/* 
 	 * GET /login er forespørselen for å hente login-skjema.
@@ -42,8 +45,9 @@ public class LoginController {
 
 		//tilkoble database får å få ut info om brukeren
 		int usernameInt = Integer.parseInt(phone);
-		Attendee attendee = database.findByPhone(usernameInt);
+		Attendee attendee = attendeeService.findAttendeeWithPhone(usernameInt);
 		if(attendee == null){
+			System.out.println("Bruker finnes ikke");
 			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
 			return "redirect:" + LOGIN_URL;
 		}
@@ -52,6 +56,7 @@ public class LoginController {
 		String newHash = RegistrationUtil.hashPassword(pword, attendeeSalt);
 
 		if (!savedHash.equals(newHash)) {
+			System.out.println("Feil passord");
 			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
 			return "redirect:" + LOGIN_URL;
 		}

@@ -25,8 +25,6 @@ public class RegistrationController {
 
     @Autowired AttendeeService attendeeService;
 
-    Database database = new Database();
-
     @GetMapping
     public String getRegisterView(){ return "registrationView"; }
 
@@ -42,11 +40,11 @@ public class RegistrationController {
                                    ) {
 
         // Valider brukeren sin info, send infoen videre til Database for å lage attendee-objekt.
-        // Sjekk at passordene vi får inn stemmer.
+        // Sjekk at passordene vi får inn er like.
         if(!pword.equals(pwordRep)){
             System.out.println("Passwords not equal");
             ra.addFlashAttribute("redirectMessage", UNEQUAL_PASSWORD_MESSAGE);
-            return "redirect:" + "registration";
+            return "redirect:" + REGISTER_URL;
         }
         int phoneInt = Integer.parseInt(phone);
         // Sjekk om telefonnummeret allerede eksisterer i databasen
@@ -54,20 +52,20 @@ public class RegistrationController {
             ra.addFlashAttribute("redirectMessage", PHONE_ALREADY_USED_MESSAGE);
             return "redirect:" + REGISTER_URL;
         }
-
+        //Sjekk om all dataen oppfyller kravene
         if(!InputValidator.isValidFirstName(firstName) || !InputValidator.isValidLastName(lastName) ||
         !InputValidator.isValidPhone(phoneInt) || !InputValidator.isValidPassword(pword) || !InputValidator.isValidGender(gender)){
             ra.addFlashAttribute("redirectMessage", INVALID_REGISTRATION_MESSAGE);
-            return "redirect:" + "registration";
+            return "redirect:" + REGISTER_URL;
         }
 
-        //Hash and salt password for storage in database
+        //Hash og salt brukerens passord før det lagres i databasen
         byte[] salt = RegistrationUtil.getSalt();
         String hash = RegistrationUtil.hashPassword(pword, salt);
-        System.out.println(salt.toString());
-        System.out.println(hash);
+
         Attendee attendee = new Attendee(firstName, lastName, phoneInt, hash, salt, gender);
         attendeeService.createAttendee(attendee);
+        //TODO - bruker blir ikke ordentlig innlogget
         LoginUtil.loginUser(request, attendee);
         return "redirect:" + CONFIRMATION_URL;
     }
