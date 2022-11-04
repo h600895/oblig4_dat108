@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/${app.url.registrationConfirmation}")
+@RequestMapping("/registrationConfirmation")
 public class RegistrationConfirmationController {
 
     @GetMapping
-    public String getRegistrationConfirmationView(HttpSession session) {
+    public String getRegistrationConfirmationView() {
 
         return "registrationConfirmationView";}
 }

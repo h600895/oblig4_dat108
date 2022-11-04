@@ -50,15 +50,16 @@ public class RegistrationController {
         }
         int phoneInt = Integer.parseInt(phone);
         // Sjekk om telefonnummeret allerede eksisterer i databasen
-        /*if(Database.doesPhoneExist(phoneInt)){
+        if(attendeeService.findAttendeeWithPhone(phoneInt) != null){
             ra.addFlashAttribute("redirectMessage", PHONE_ALREADY_USED_MESSAGE);
             return "redirect:" + REGISTER_URL;
         }
+
         if(!InputValidator.isValidFirstName(firstName) || !InputValidator.isValidLastName(lastName) ||
         !InputValidator.isValidPhone(phoneInt) || !InputValidator.isValidPassword(pword) || !InputValidator.isValidGender(gender)){
             ra.addFlashAttribute("redirectMessage", INVALID_REGISTRATION_MESSAGE);
             return "redirect:" + "registration";
-        }*/
+        }
 
         //Hash and salt password for storage in database
         byte[] salt = RegistrationUtil.getSalt();
