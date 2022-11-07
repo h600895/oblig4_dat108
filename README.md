@@ -6,7 +6,7 @@ Påmeldingsside:
 
 - [x] Har felter for Fornavn, Etternavn, Mobil, Passord, Passord repetert, og kjønn
 - [x] Påmeldingsknapp for innsending av skjema
-- [ ] Ved suksessfull påmelding skal man bli logget inn med mobilnummer som brukernavn
+- [x] Ved suksessfull påmelding skal man bli logget inn med mobilnummer som brukernavn
 - [ ] Alle felter er obligatoriske og skal valideres som beskrevet nedenfor
 - [ ] Ved suksessfull påmelding skal man få en bekreftelse på at man er påmeldt, med informasjonen man er meldt på med.
 
@@ -21,7 +21,7 @@ Deltagerliste:
 
 Innloggingsside:
 
-- [ ] Siden har et skjema med bokser for Mobil og Passord, og en knapp for å logge inn.
+- [x] Siden har et skjema med bokser for Mobil og Passord, og en knapp for å logge inn.
 - [x] Vellykket innlogging sender deg videre til deltagerlisten
 - [x] Ved ulike feilsituasjoner skal man sendes tilbake til innloggingssiden med feilmelding i rødt
 - Eksempler på feilmeldinger:
