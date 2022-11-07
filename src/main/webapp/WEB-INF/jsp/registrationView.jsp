@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<title>Registrering</title>
+	<link rel="stylesheet" href="css/simple.css">
 </head>
 <body>
 <h1>Påmelding</h1>
