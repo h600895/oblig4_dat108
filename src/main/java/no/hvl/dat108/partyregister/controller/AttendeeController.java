@@ -33,7 +33,8 @@ public class AttendeeController {
             return "redirect:" + LOGIN_URL;
         }
 
-        List<Attendee> attendees = attendeeService.findAllAttendees();
+        //List<Attendee> attendees = attendeeService.findAllAttendees();
+        List<Attendee> attendees = attendeeService.findAllSortedFirstName();
 
         session.setAttribute("attendees", attendees);
 

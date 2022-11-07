@@ -28,12 +28,11 @@ public class Database {
     //Returnerer true om den eksiterer
     public boolean doesPhoneExist(int phone) {
 
-        if(attendeeService.findAttendeeWithPhone(phone) == null){
-            return false;
-        }
-        return true;
+        return attendeeService.findAttendeeWithPhone(phone) != null;
 
     }
+
+
 
 
 
