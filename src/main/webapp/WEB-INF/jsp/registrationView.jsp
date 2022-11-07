@@ -13,14 +13,26 @@
 			<table>
 				<tr>
 					<td>Fornavn:</td>
-					<td><input type="text" name="firstName"/></td>
+					<td><input type="text" name="firstName"
+						   required pattern="[A-ZÆØÅ]{1}[a-zA-ZæøåÆØÅ -]{2,20}"
+						   placeholder="Ditt fornavn"
+						   title="Fornavn må starte med en STOR bokstav, så små">
+						</td>
 				<tr>
 					<td>Etternavn:</td>
-					<td><input type="text" name="lastName"/></td>
+					<td><input type="text" name="lastName"
+							   required pattern="[A-ZÆØÅ]{1}[a-zA-ZæøåÆØÅ -]{2,20}"
+							   placeholder="Ditt etternavn"
+							   title="Etternavn må starte med en STOR bokstav, så små">
+					</td>
 				</tr>
 				<tr>
 					<td>Mobil (8 siffer):</td>
-					<td><input type="text" name="phone"/></td>
+					<td><input type="text" name="phone"
+					required pattern="[0-9]{8}"
+							   placeholder="Telefonnummer"
+							   title="Telefonnummeret må ha åtte tall"
+						></td>
 				</tr>
 				<tr>
 					<td>Passord:</td>

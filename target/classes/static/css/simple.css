@@ -629,6 +629,11 @@ input[type="text"], input[type="password"]{
   border-color: green;
 }
 
+/* Oransje tekst for svakt passord*/
+*input[type="text"], input[type="password"]{
+  border-color: orange;
+}*
+
 input[type="text"]:invalid, input[type="password"]:invalid {
   border-color: red;
 }
@@ -639,4 +644,4 @@ input[type="text"], input[type="text"]{
 
 input[type="text"]:invalid, input[type="text"]:invalid {
   border-color: red;
-} 
+}
