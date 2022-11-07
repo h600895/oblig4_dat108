@@ -13,7 +13,7 @@
 		<c:out value="${person.phone}"/><br/>
 		<c:out value="${person.gender}"/><br/><p/>
 	
-	<form action="attendeeList" method="post">
+	<form action="registrationConfirmation" method="post">
 	  <fieldset>
 	  		<p><input type="submit" value="Gå til deltagerlisten"/></p>
 	  </fieldset>
