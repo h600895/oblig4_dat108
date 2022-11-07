@@ -9,16 +9,16 @@ public class Attendee {
 
     @Id
     private int phone;
-    private String first_name;
-    private String last_name;
+    private String firstName; //first_name
+    private String lastName; //last_name
     private String password_hash;
     private byte[] password_salt;
     private String gender;
 
 
     public Attendee(String firstName, String lastName, int phone, String hash, byte[] salt, String gender) {
-        this.first_name = firstName;
-        this.last_name = lastName;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phone = phone;
         this.password_hash = hash;
         this.password_salt = salt;
@@ -31,12 +31,12 @@ public class Attendee {
     }
 
     public String getFirstName() {
-        return first_name;
+        return firstName;
     }
 
 
     public String getLastName() {
-        return last_name;
+        return lastName;
     }
 
     public int getPhone() {
