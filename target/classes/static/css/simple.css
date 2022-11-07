@@ -624,3 +624,19 @@ progress::-moz-progress-bar {
 progress:indeterminate::-moz-progress-bar {
   background-color: var(--accent-bg);
 }
+
+input[type="text"], input[type="password"]{
+  border-color: green;
+}
+
+input[type="text"]:invalid, input[type="password"]:invalid {
+  border-color: red;
+}
+
+input[type="text"], input[type="text"]{
+  border-color: green;
+}
+
+input[type="text"]:invalid, input[type="text"]:invalid {
+  border-color: red;
+} 
