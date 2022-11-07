@@ -29,21 +29,15 @@ public class AttendeeController {
     @GetMapping
     public String showAttendees(HttpSession session, RedirectAttributes ra) {
 
-        Attendee attendee = (Attendee) session.getAttribute("person");
 
 
-
-        if (!LoginUtil.isUserLoggedIn(session) && !attendeeService.isAttendee(attendee)) {
+        if (!LoginUtil.isAutorised(session)) {
             ra.addFlashAttribute("redirectMessage", REQUIRES_LOGIN_MESSAGE);
             return "redirect:" + LOGIN_URL;
         }
-
-        //List<Attendee> attendees = attendeeService.findAllAttendees();
         List<Attendee> attendees = attendeeService.findAllSortedFirstName();
 
         session.setAttribute("attendees", attendees);
-
-
 
         return "attendeeView";
     }

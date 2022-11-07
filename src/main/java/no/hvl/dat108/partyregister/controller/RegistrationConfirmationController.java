@@ -21,12 +21,17 @@ public class RegistrationConfirmationController {
 
 
     @GetMapping
-    public String getRegistrationConfirmationView() {
+    public String getRegistrationConfirmationView(HttpServletRequest request, RedirectAttributes ra) {
+
+        if (!LoginUtil.isAutorised(request.getSession())) {
+            ra.addFlashAttribute("redirectMessage", REQUIRES_LOGIN_MESSAGE);
+            return "redirect:" + LOGIN_URL;
+        }
 
         return "registrationConfirmationView";}
     @PostMapping
     public String getAttendeListView(HttpServletRequest request, RedirectAttributes ra) {
-        if (!LoginUtil.isUserLoggedIn(request.getSession())) {
+        if (!LoginUtil.isAutorised(request.getSession())) {
             ra.addFlashAttribute("redirectMessage", REQUIRES_LOGIN_MESSAGE);
             return "redirect:" + LOGIN_URL;
         }
