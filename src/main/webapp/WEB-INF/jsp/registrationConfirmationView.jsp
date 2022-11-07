@@ -15,7 +15,7 @@
 	
 	<form action="attendeeList" method="post">
 	  <fieldset>
-	  		<p><input type="submit" value="Gå til deltagerlisten" /></p>
+	  		<p><input type="submit" value="Gå til deltagerlisten"/></p>
 	  </fieldset>
 	</form>
 </body>

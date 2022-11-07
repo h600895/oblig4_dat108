@@ -1,10 +1,10 @@
 package no.hvl.dat108.partyregister.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import no.hvl.dat108.partyregister.model.Attendee;
 import no.hvl.dat108.partyregister.util.AttendeeService;
-import no.hvl.dat108.partyregister.util.Database;
 import no.hvl.dat108.partyregister.util.RegistrationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -75,4 +75,6 @@ public class LoginController {
 		
 
     }
+
+
 }

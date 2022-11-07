@@ -13,11 +13,24 @@
 			<th>Navn</th>
 			<th>Mobil</th>
 		</tr>
-		<c:forEach var="item" items="${attendees}"><tr>
-			<td>${item.gender}</td>
-			<td>${item.firstName} ${item.lastName}</td>
-			<td>${item.phone}</td>
-		</tr></c:forEach>
+		<c:forEach var="item" items="${attendees}">
+			<c:choose>
+				<c:when test="${item.phone==person.phone}">
+				<tr style="background-color: green">
+					<td>${item.gender}</td>
+					<td>${item.firstName} ${item.lastName}</td>
+					<td>${item.phone}</td>
+				</tr>
+				</c:when>
+				<c:otherwise>
+					<tr>
+						<td>${item.gender}</td>
+						<td>${item.firstName} ${item.lastName}</td>
+						<td>${item.phone}</td>
+					</tr>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
 	</table><br>
 
 	<form action="logout" method="post">
