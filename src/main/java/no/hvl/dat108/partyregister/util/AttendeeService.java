@@ -30,6 +30,17 @@ public class AttendeeService {
         return attendeeRepo.findAll(Sort.by(Sort.Direction.ASC, "firstName").and(Sort.by(Sort.Direction.ASC, "lastName")));
     }
 
+    public boolean isAttendee(Attendee attendee) {
+        if (attendee == null) {
+            return false;
+        }
+        Attendee attendeeNew = attendeeRepo.findByPhone(attendee.getPhone());
+        if (attendeeNew == null) {
+            return false;
+        }
+        return attendeeNew.getPhone() == attendee.getPhone();
+    }
+
 
 
 }
