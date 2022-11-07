@@ -8,15 +8,13 @@
 </head>
 
 <body>
-	<p>Påmeldingen er mottatt for
+	<p>Påmeldingen er mottatt for<br/>
 		<c:out value="${person.firstName} ${person.lastName}"/><br/>
 		<c:out value="${person.phone}"/><br/>
 		<c:out value="${person.gender}"/><br/><p/>
 	
 	<form action="attendeeList" method="post">
-	  <fieldset>
 	  		<p><input type="submit" value="Gå til deltagerlisten"/></p>
-	  </fieldset>
 	</form>
 </body>
 

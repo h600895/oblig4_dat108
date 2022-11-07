@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Logg inn</title>
+	<link rel="stylesheet" href="css/simple.css">
 </head>
 <body>
 

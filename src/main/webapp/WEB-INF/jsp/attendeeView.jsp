@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DeltagerListe</title>
+	<title>Deltagerliste</title>
+	<link rel="stylesheet" href="css/simple.css">
 </head>
 
 <body>
