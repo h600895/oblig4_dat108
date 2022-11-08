@@ -38,7 +38,7 @@ public class AttendeeService {
         if (attendeeNew == null) {
             return false;
         }
-        return attendeeNew.getPhone() == attendee.getPhone();
+        return attendeeNew.getPhone().equals(attendee.getPhone());
     }
 
 
