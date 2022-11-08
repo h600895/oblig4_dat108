@@ -50,6 +50,12 @@ public class Attendee {
     public String getGender() {
         return gender;
     }
+    public String getFullGender () {
+        if (gender.equals("M")) {
+            return "Mann";
+        }
+        return "Kvinne";
+    }
 
 
 
