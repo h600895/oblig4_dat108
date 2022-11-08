@@ -16,6 +16,7 @@ public class Attendee {
     private String gender;
 
 
+
     public Attendee(String firstName, String lastName, int phone, String hash, byte[] salt, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -49,6 +50,12 @@ public class Attendee {
 
     public String getGender() {
         return gender;
+    }
+    public String getFullGender () {
+        if (gender.equals("M")) {
+            return "Mann";
+        }
+        return "Kvinne";
     }
 
 
