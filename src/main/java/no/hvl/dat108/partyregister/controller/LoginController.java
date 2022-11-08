@@ -43,16 +43,21 @@ public class LoginController {
     public String logIn(@RequestParam String phone, @RequestParam String pword,
     		HttpServletRequest request,	RedirectAttributes ra) {
 
+		if (phone.equals("") || pword.equals("")) {
+			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
+			return "redirect:" + LOGIN_URL;
+		}
+
 		//tilkoble database får å få ut info om brukeren
-		int usernameInt = Integer.parseInt(phone);
-		Attendee attendee = attendeeService.findAttendeeWithPhone(usernameInt);
+		Attendee attendee = attendeeService.findAttendeeWithPhone(phone);
+
 		if(attendee == null){
 			System.out.println("Bruker finnes ikke");
 			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
 			return "redirect:" + LOGIN_URL;
 		}
 		byte[] attendeeSalt = attendee.getPassword_salt();
-		String savedHash = attendee.getPassword_hash();
+		String savedHash = attendee.getPasswordhash();
 		String newHash = RegistrationUtil.hashPassword(pword, attendeeSalt);
 
 		if (!savedHash.equals(newHash)) {

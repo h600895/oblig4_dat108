@@ -18,7 +18,7 @@ public class AttendeeService {
         return attendeeRepo.findAll();
     }
 
-    public Attendee findAttendeeWithPhone(int phone) {
+    public Attendee findAttendeeWithPhone(String phone) {
         return attendeeRepo.findByPhone(phone);
     }
 
@@ -38,7 +38,7 @@ public class AttendeeService {
         if (attendeeNew == null) {
             return false;
         }
-        return attendeeNew.getPhone() == attendee.getPhone();
+        return attendeeNew.getPhone().equals(attendee.getPhone());
     }
 
 

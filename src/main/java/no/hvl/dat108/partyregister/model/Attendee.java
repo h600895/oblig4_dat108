@@ -1,6 +1,7 @@
 package no.hvl.dat108.partyregister.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "attendee", schema = "attendee")
@@ -8,20 +9,25 @@ public class Attendee {
 
 
     @Id
-    private int phone;
-    private String firstName; //first_name
-    private String lastName; //last_name
-    private String password_hash;
-    private byte[] password_salt;
+    @Size(min = 8, max = 8, message = "Nummer må være akkurat 8 siffer")
+    private String phone;
+
+    @Size(min = 2, max = 20, message = "Fornavn må være mellom 2 og 20 bokstaver")
+    private String firstname; //first_name
+
+    @Size(min = 2, max = 20, message = "Etternavn må være mellom 2 og 20 bokstaver")
+    private String lastname; //last_name
+    private String passwordhash;
+    private byte[] passwordsalt;
     private String gender;
 
 
-    public Attendee(String firstName, String lastName, int phone, String hash, byte[] salt, String gender) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Attendee(String firstName, String lastName, String phone, String hash, byte[] salt, String gender) {
+        this.firstname = firstName;
+        this.lastname = lastName;
         this.phone = phone;
-        this.password_hash = hash;
-        this.password_salt = salt;
+        this.passwordhash = hash;
+        this.passwordsalt = salt;
         this.gender = gender;
 
     }
@@ -31,24 +37,30 @@ public class Attendee {
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
 
     public String getLastName() {
-        return lastName;
+        return lastname;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public String getPassword_hash() { return password_hash; }
+    public String getPasswordhash() { return passwordhash; }
 
-    public byte[] getPassword_salt() { return password_salt; }
+    public byte[] getPassword_salt() { return passwordsalt; }
 
     public String getGender() {
         return gender;
+    }
+    public String getFullGender () {
+        if (gender.equals("M")) {
+            return "Mann";
+        }
+        return "Kvinne";
     }
 
 

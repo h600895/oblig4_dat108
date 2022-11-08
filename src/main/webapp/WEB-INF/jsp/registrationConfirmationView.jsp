@@ -11,7 +11,7 @@
 	<p>Påmeldingen er mottatt for
 		<c:out value="${person.firstName} ${person.lastName}"/><br/>
 		<c:out value="${person.phone}"/><br/>
-		<c:out value="${person.gender}"/><br/><p/>
+		<c:out value="${person.getFullGender()}"/><br/><p/>
 	
 	<form action="registrationConfirmation" method="post">
 	  <fieldset>

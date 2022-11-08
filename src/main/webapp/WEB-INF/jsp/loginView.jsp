@@ -16,9 +16,9 @@
 	<fieldset>
 
 		<label for="phone">Telefon-nummer:</label><br>
-		<input type="text" name="phone" id="phone" placeholder="12345678"/><br>
+		<input type="text" name="phone" id="phone" placeholder="Brukenavn"/><br>
 		<label for="pword">Passord:</label><br>
-		<input type="password" name="pword" id="pword" placeholder="password"/><br>
+		<input type="password" name="pword" id="pword" placeholder="Passord"/><br>
 		<input type="submit" value="Logg inn"/><br>
 
 	</fieldset>
