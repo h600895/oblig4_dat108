@@ -14,7 +14,7 @@ public class InputValidator {
     public static final String FIRST_NAME_VALIDATE = "^[A-ZÆØÅ]{1}[a-zA-ZæøåÆØÅ -]{2,20}";
     public static final String LAST_NAME_VALIDATE = "^[A-ZÆØÅ]{1}[a-zA-ZæøåÆØÅ ]{2,20}";
     public static final String PHONE_VALIDATE = "[0-9]{8}";
-    public static final String PASSWORD_VALIDATE = "^(?=.*[A-ZÆØÅ])(?=.*\\d)[A-Za-zæøåÆØÅ\\d]{8,}$";
+    public static final String PASSWORD_VALIDATE = "^(?=.*[a-zæøå!@#$%^&*_=+-])(?=.*[A-ZÆØÅ])(?=.*[0-9]).{8,}$";
     public static final String GENDER_VALIDATE = "[MK]";
 
     public static boolean isValidFirstName(String firstName){

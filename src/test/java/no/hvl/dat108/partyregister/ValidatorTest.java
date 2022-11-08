@@ -1,7 +1,12 @@
 package no.hvl.dat108.partyregister;
 
+import no.hvl.dat108.partyregister.model.Attendee;
 import no.hvl.dat108.partyregister.util.InputValidator;
 import org.junit.jupiter.api.Test;
+
+import javax.validation.Validation;
+import javax.validation.Validator;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,7 +16,6 @@ public class ValidatorTest {
     /*
      * Et gyldig telefonnummer består av nøyaktig åtte siffer (0-9).
      */
-
     @Test
     public void validPhoneNumberShouldBeOk() {
         assertTrue(InputValidator.isValidPhone("99999999"));
