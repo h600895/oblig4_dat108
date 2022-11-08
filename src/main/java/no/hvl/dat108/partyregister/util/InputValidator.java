@@ -25,9 +25,8 @@ public class InputValidator {
         return lastName != null && lastName.matches(LAST_NAME_VALIDATE);
     }
 
-    public static boolean isValidPhone(int phone){
-        String phoneString = Integer.toString(phone);
-        return phoneString != null && phoneString.matches(PHONE_VALIDATE);
+    public static boolean isValidPhone(String phone){
+        return phone != null && phone.matches(PHONE_VALIDATE);
     }
 
     public static boolean isValidPassword(String password){

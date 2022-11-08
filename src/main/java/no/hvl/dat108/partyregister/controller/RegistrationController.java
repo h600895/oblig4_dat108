@@ -46,15 +46,14 @@ public class RegistrationController {
             ra.addFlashAttribute("redirectMessage", UNEQUAL_PASSWORD_MESSAGE);
             return "redirect:" + REGISTER_URL;
         }
-        int phoneInt = Integer.parseInt(phone);
         // Sjekk om telefonnummeret allerede eksisterer i databasen
-        if(attendeeService.findAttendeeWithPhone(phoneInt) != null){
+        if(attendeeService.findAttendeeWithPhone(phone) != null){
             ra.addFlashAttribute("redirectMessage", PHONE_ALREADY_USED_MESSAGE);
             return "redirect:" + REGISTER_URL;
         }
         //Sjekk om all dataen oppfyller kravene
         if(!InputValidator.isValidFirstName(firstName) || !InputValidator.isValidLastName(lastName) ||
-        !InputValidator.isValidPhone(phoneInt) || !InputValidator.isValidPassword(pword) || !InputValidator.isValidGender(gender)){
+        !InputValidator.isValidPhone(phone) || !InputValidator.isValidPassword(pword) || !InputValidator.isValidGender(gender)){
             ra.addFlashAttribute("redirectMessage", INVALID_REGISTRATION_MESSAGE);
             return "redirect:" + REGISTER_URL;
         }
@@ -63,7 +62,7 @@ public class RegistrationController {
         byte[] salt = RegistrationUtil.getSalt();
         String hash = RegistrationUtil.hashPassword(pword, salt);
 
-        Attendee attendee = new Attendee(firstName, lastName, phoneInt, hash, salt, gender);
+        Attendee attendee = new Attendee(firstName, lastName, phone, hash, salt, gender);
         attendeeService.createAttendee(attendee);
         //TODO - bruker blir ikke ordentlig innlogget
         LoginUtil.loginUser(request, attendee);

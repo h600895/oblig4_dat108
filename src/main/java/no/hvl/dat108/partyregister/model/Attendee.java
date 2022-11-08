@@ -8,7 +8,7 @@ public class Attendee {
 
 
     @Id
-    private int phone;
+    private String phone;
     private String firstName; //first_name
     private String lastName; //last_name
     private String password_hash;
@@ -16,7 +16,7 @@ public class Attendee {
     private String gender;
 
 
-    public Attendee(String firstName, String lastName, int phone, String hash, byte[] salt, String gender) {
+    public Attendee(String firstName, String lastName, String phone, String hash, byte[] salt, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -39,7 +39,7 @@ public class Attendee {
         return lastName;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 

@@ -16,17 +16,17 @@ public class Database {
     //Legge til sort etter hvert
     public List<Attendee> findAllAttendee() { return attendeeService.findAllAttendees();}
 
-    public Attendee findByPhone(int phone) {return attendeeService.findAttendeeWithPhone(phone);}
+    public Attendee findByPhone(String phone) {return attendeeService.findAttendeeWithPhone(phone);}
 
     //public void updateAttendee() {}
-    public Attendee createAttendee(String firstName, String lastName, int phone, String hash, byte[] salt, String gender) {
+    public Attendee createAttendee(String firstName, String lastName, String phone, String hash, byte[] salt, String gender) {
         Attendee attendee = new Attendee(firstName, lastName, phone, hash, salt, gender);
         attendeeService.createAttendee(attendee);
         return attendee;
     }
 
     //Returnerer true om den eksiterer
-    public boolean doesPhoneExist(int phone) {
+    public boolean doesPhoneExist(String phone) {
 
         return attendeeService.findAttendeeWithPhone(phone) != null;
 

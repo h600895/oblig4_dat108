@@ -49,10 +49,7 @@ public class LoginController {
 		}
 
 		//tilkoble database får å få ut info om brukeren
-		int usernameInt = Integer.parseInt(phone);
-		Attendee attendee = attendeeService.findAttendeeWithPhone(usernameInt);
-
-
+		Attendee attendee = attendeeService.findAttendeeWithPhone(phone);
 
 		if(attendee == null){
 			System.out.println("Bruker finnes ikke");

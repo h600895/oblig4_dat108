@@ -18,7 +18,7 @@ public class AttendeeService {
         return attendeeRepo.findAll();
     }
 
-    public Attendee findAttendeeWithPhone(int phone) {
+    public Attendee findAttendeeWithPhone(String phone) {
         return attendeeRepo.findByPhone(phone);
     }
 

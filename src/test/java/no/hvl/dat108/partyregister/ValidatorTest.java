@@ -1,50 +1,35 @@
 package no.hvl.dat108.partyregister;
 
+import no.hvl.dat108.partyregister.util.InputValidator;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidatorTest {
 
     /*
-     * Et gyldig brukernavn består av 4 eller flere tegn. Lovlige tegn
-     * er bokstaver (små og store) inkl. de norske bokstavene, og tall.
-     * Brukernavnet kan ikke begynne med et tall.
+     * Et gyldig telefonnummer består av nøyaktig åtte siffer (0-9).
      */
-	/*
+
     @Test
-    public void validUsernamesShouldBeOk() {
-        assertTrue(InputValidator.isValidUsername("aaaa"));
-        assertTrue(InputValidator.isValidUsername("aAaA"));
-        assertTrue(InputValidator.isValidUsername("abc4"));
-        assertTrue(InputValidator.isValidUsername("A6789b"));
-        assertTrue(InputValidator.isValidUsername("A6789b"));
+    public void validPhoneNumberShouldBeOk() {
+        assertTrue(InputValidator.isValidPhone("99999999"));
+        assertTrue(InputValidator.isValidPhone("56789023"));
+        assertFalse(InputValidator.isValidPhone("1"));
+        assertFalse(InputValidator.isValidPhone("67a34b23"));
     }
     
     @Test
     public void norwegianLettersShouldBeAllowed() {
-        assertTrue(InputValidator.isValidUsername("æøåÆØÅ"));
+        assertTrue(InputValidator.isValidFirstName("ÆØÅæøå"));
     }
     
     @Test
-    public void shortUsernamesShouldNotBeOk() {
-        assertFalse(InputValidator.isValidUsername(null));
-        assertFalse(InputValidator.isValidUsername(""));
-        assertFalse(InputValidator.isValidUsername("a"));
-        assertFalse(InputValidator.isValidUsername("ABC"));
+    public void illegalPasswordsShouldNotBeOk() {
+        assertFalse(InputValidator.isValidPassword(null));
+        assertFalse(InputValidator.isValidPassword(""));
+        assertFalse(InputValidator.isValidPassword("a"));
+        assertFalse(InputValidator.isValidPassword("ABC1"));
     }
-    
-    @Test
-    public void usernamesWithIllegalCharsShouldNotBeOk() {
-        assertFalse(InputValidator.isValidUsername("a-bcd"));
-        assertFalse(InputValidator.isValidUsername("a@bcd"));
-    }
-    
-    @Test
-    public void usernamesStartingWithANumberShouldNotBeOk() {
-        assertFalse(InputValidator.isValidUsername("1abcde"));
-        assertFalse(InputValidator.isValidUsername("0ABCDE"));
-    }
-    
-    
-*/
 }
