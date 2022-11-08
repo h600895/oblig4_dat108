@@ -43,9 +43,17 @@ public class LoginController {
     public String logIn(@RequestParam String phone, @RequestParam String pword,
     		HttpServletRequest request,	RedirectAttributes ra) {
 
+		if (phone.equals("") || pword.equals("")) {
+			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
+			return "redirect:" + LOGIN_URL;
+		}
+
 		//tilkoble database får å få ut info om brukeren
 		int usernameInt = Integer.parseInt(phone);
 		Attendee attendee = attendeeService.findAttendeeWithPhone(usernameInt);
+
+
+
 		if(attendee == null){
 			System.out.println("Bruker finnes ikke");
 			ra.addFlashAttribute("redirectMessage", INVALID_USERNAME_MESSAGE);
