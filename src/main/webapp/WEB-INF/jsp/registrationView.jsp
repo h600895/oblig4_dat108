@@ -37,7 +37,7 @@
 				<tr>
 					<td>Passord:</td>
 					<td><input type="password" name="pword"
-							   required pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,12}$
+							   required pattern=^(?=.*[a-zæøå!@#$%^&*_=+-])(?=.*[A-ZÆØÅ])(?=.*[0-9]).{8,}$
 						placeholder="Lag et sikkert passord"
 							   title="Passordet må minst ha åtte tegn, en stor bokstav og et tegn"
 					></td>
