@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Påmelding</h1>
-	<p>${redirectMessage}</p>
+	<p style="color:red">${redirectMessage}</p>
 	<form action="registration" method="post">
 		<fieldset>
 			<table>
@@ -44,7 +44,7 @@
 				</tr>
 				<tr>
 					<td>Kjønn: </td>
-					<td><input type="radio" id="mann" name="gender" value="M"/>
+					<td><input type="radio" id="mann" name="gender" value="M" checked="checked"/>
 						<label for="mann">Mann</label>
 						<input type="radio" id="kvinne" name="gender" value="K"/>
 						<label for="kvinne">Kvinne</label></td>
