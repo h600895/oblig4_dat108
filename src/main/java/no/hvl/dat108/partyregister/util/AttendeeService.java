@@ -27,7 +27,7 @@ public class AttendeeService {
     }
 
     public List<Attendee> findAllSortedFirstName() {
-        return attendeeRepo.findAll(Sort.by(Sort.Direction.ASC, "firstName").and(Sort.by(Sort.Direction.ASC, "lastName")));
+        return attendeeRepo.findAll(Sort.by(Sort.Direction.ASC, "firstname").and(Sort.by(Sort.Direction.ASC, "lastname")));
     }
 
     public boolean isAttendee(Attendee attendee) {
@@ -38,7 +38,7 @@ public class AttendeeService {
         if (attendeeNew == null) {
             return false;
         }
-        return attendeeNew.getPhone() == attendee.getPhone();
+        return attendeeNew.getPhone().equals(attendee.getPhone());
     }
 
 

@@ -25,18 +25,14 @@ public class AttendeeController {
     @Autowired
     AttendeeService attendeeService;
 
-
     @GetMapping
     public String showAttendees(HttpSession session, RedirectAttributes ra) {
-
-
 
         if (!LoginUtil.isAutorised(session)) {
             ra.addFlashAttribute("redirectMessage", REQUIRES_LOGIN_MESSAGE);
             return "redirect:" + LOGIN_URL;
         }
         List<Attendee> attendees = attendeeService.findAllSortedFirstName();
-
         session.setAttribute("attendees", attendees);
 
         return "attendeeView";

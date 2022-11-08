@@ -57,7 +57,7 @@ public class LoginController {
 			return "redirect:" + LOGIN_URL;
 		}
 		byte[] attendeeSalt = attendee.getPassword_salt();
-		String savedHash = attendee.getPassword_hash();
+		String savedHash = attendee.getPasswordhash();
 		String newHash = RegistrationUtil.hashPassword(pword, attendeeSalt);
 
 		if (!savedHash.equals(newHash)) {
