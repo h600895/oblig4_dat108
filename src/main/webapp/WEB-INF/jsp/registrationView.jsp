@@ -30,21 +30,28 @@
 					<td>Mobil (8 siffer):</td>
 					<td><input type="text" name="phone"
 					required pattern="[0-9]{8}"
-							   placeholder="Telefonnummer"
-							   title="Telefonnummeret må ha åtte tall"
+							   placeholder="Mobilnummer"
+							   title="Mobilnummeret må ha åtte tall"
 						></td>
 				</tr>
 				<tr>
 					<td>Passord:</td>
-					<td><input type="password" name="pword"/></td>
+					<td><input type="password" name="pword"
+							   required pattern="^[a-zA-Z0-9]{8,}$"
+						placeholder="Lag et sikkert passord"
+							   title="Passordet må minst ha åtte tegn, en stor bokstav og et tegn"
+					></td>
 				</tr>
 				<tr>
 					<td>Passord repetert: </td>
-					<td><input type="password" name="pwordRep"/></td>
+					<td><input type="password" name="pwordRep"
+					placeholder="Repeter passordet ditt"
+							   title="Passordet må være likt"
+					></td>
 				</tr>
 				<tr>
 					<td>Kjønn: </td>
-					<td><input type="radio" id="mann" name="gender" value="M"/>
+					<td><input type="radio" id="mann" name="gender" value="M" checked="checked"/>
 						<label for="mann">Mann</label>
 						<input type="radio" id="kvinne" name="gender" value="K"/>
 						<label for="kvinne">Kvinne</label></td>
