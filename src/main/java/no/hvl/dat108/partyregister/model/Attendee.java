@@ -1,6 +1,7 @@
 package no.hvl.dat108.partyregister.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "attendee", schema = "attendee")
@@ -8,8 +9,13 @@ public class Attendee {
 
 
     @Id
+    @Size(min = 8, max = 8)
     private String phone;
+
+    @Size(min = 2, max = 20)
     private String firstName; //first_name
+
+    @Size(min = 2, max = 20)
     private String lastName; //last_name
     private String password_hash;
     private byte[] password_salt;

@@ -41,7 +41,7 @@ public class RegistrationController {
 
         // Valider brukeren sin info, send infoen videre til Database for å lage attendee-objekt.
         // Sjekk at passordene vi får inn er like.
-        if(!pword.equals(pwordRep)){
+        if(!InputValidator.isEqualPassword(pword, pwordRep)){
             System.out.println("Passwords not equal");
             ra.addFlashAttribute("redirectMessage", UNEQUAL_PASSWORD_MESSAGE);
             return "redirect:" + REGISTER_URL;
@@ -64,7 +64,6 @@ public class RegistrationController {
 
         Attendee attendee = new Attendee(firstName, lastName, phone, hash, salt, gender);
         attendeeService.createAttendee(attendee);
-        //TODO - bruker blir ikke ordentlig innlogget
         LoginUtil.loginUser(request, attendee);
         return "redirect:" + CONFIRMATION_URL;
     }

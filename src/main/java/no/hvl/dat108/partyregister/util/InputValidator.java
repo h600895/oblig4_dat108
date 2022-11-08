@@ -29,6 +29,10 @@ public class InputValidator {
         return phone != null && phone.matches(PHONE_VALIDATE);
     }
 
+    public static boolean isEqualPassword(String password, String passwordRep){
+        return password != null && password.equals(passwordRep);
+    }
+
     public static boolean isValidPassword(String password){
         return password != null && password.matches(PASSWORD_VALIDATE);
     }
