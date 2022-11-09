@@ -36,4 +36,11 @@ public class ValidatorTest {
         assertFalse(InputValidator.isValidPassword("a"));
         assertFalse(InputValidator.isValidPassword("ABC1"));
     }
+
+    @Test
+    public void passwordsAreMaching() {
+        assertFalse(InputValidator.isEqualPassword("Passord1234", "Passord123"));
+        assertFalse(InputValidator.isEqualPassword("Passord123", "Passord1234"));
+        assertFalse(InputValidator.isEqualPassword("Passord123", "Passord123"));
+    }
 }
