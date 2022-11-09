@@ -1,15 +1,12 @@
 "use strict"
 
-document.getElementsByName("pword")[0].addEventListener('input', sjekkPassordStyrke);
+const validity = document.getElementById("pword")
+    validity.addEventListener('input', sjekkPassordStyrke);
 
-function sjekkPassordStyrke(oninput) {
-    const validity = oninput.target.validity;
-
+function sjekkPassordStyrke() {
     if (validity.valid) {
-       if( validity.length >=12) {
-           return validity;
-       }else{
-           return mediumPassword;
+       if( validity.length <12) {
+           skru på mediumpassord
        }
     }
 }
