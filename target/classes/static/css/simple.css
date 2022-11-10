@@ -625,23 +625,41 @@ progress:indeterminate::-moz-progress-bar {
   background-color: var(--accent-bg);
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"] { /*input[type="password"]{*/
+  border-color: red;
+}
+
+/* Default farge *//*
+input[type="password"]:invalid {
+  border-color: red;
+}
+#pwordRep {
+  border-color: red;
+}
+*/
+/* Oransje tekst for svakt passord*//*
+
+*/
+input[type="password"].weakPassword {
+  border-color: red;
+}
+
+input[type="text"]:valid {
   border-color: green;
 }
 
-/* Oransje tekst for svakt passord*/
+
+input[type="text"]:invalid, .pwordRepInvalid {
+  border-color: red;
+}
+
 input[type="password"].mediumPassword {
   border-color: orange;
 }
-
-input[type="text"]:invalid, input[type="password"]:invalid {
-  border-color: red;
-}
-
-input[type="text"], input[type="text"]{
+input[type="password"].strongPassword {
   border-color: green;
 }
 
-input[type="text"]:invalid, input[type="text"]:invalid {
-  border-color: red;
+.pwordMatch {
+  border-color: green;
 }

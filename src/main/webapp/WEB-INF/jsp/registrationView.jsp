@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 					<td>Passord:</td>
-					<td><input type="password" name="pword"
+					<td><input id="pword" class="weakPassword" type="password" name="pword"
 							   required pattern=^(?=.*[a-zæøå!@#$%^&*_=+-])(?=.*[A-ZÆØÅ])(?=.*[0-9]).{8,}$
 						placeholder="Lag et sikkert passord"
 							   title="Passordet må minst ha åtte tegn, en stor bokstav og et tegn"
@@ -44,7 +44,7 @@
 				</tr>
 				<tr>
 					<td>Passord repetert: </td>
-					<td><input type="password" name="pwordRep"
+					<td><input class="pwordRepInvalid" id="pwordRep" type="password" name="pwordRep"
 					placeholder="Repeter passordet ditt"
 							   title="Passordet må være likt"
 					></td>
@@ -77,6 +77,7 @@
 			
 		</fieldset>
 	</form>
+	<script src="javascript/main.js"></script>
 </body>
 </html>
 
