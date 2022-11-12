@@ -630,7 +630,7 @@ input[type="text"], input[type="password"]{
 }
 
 /* Oransje tekst for svakt passord*/
-input[type="password"].mediumPassword {
+input[type="password"].mediumPassword:disabled {
   border-color: orange;
 }
 

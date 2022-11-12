@@ -16,9 +16,9 @@
 	<fieldset>
 
 		<label for="phone">Telefon-nummer:</label><br>
-		<input type="text" name="phone" id="phone" placeholder="Brukenavn"/><br>
+		<input type="text" name="phone" id="phone" required pattern="[0-9]{8}" placeholder="Brukenavn"/><br>
 		<label for="pword">Passord:</label><br>
-		<input type="password" name="pword" id="pword" placeholder="Passord"/><br>
+		<input type="password" name="pword" id="pword" required pattern="^(?=.*[a-zæøå!@#$%^&*_=+-])(?=.*[A-ZÆØÅ])(?=.*[0-9]).{8,}$" placeholder="Passord"/><br>
 		<input type="submit" value="Logg inn"/><br>
 
 	</fieldset>
