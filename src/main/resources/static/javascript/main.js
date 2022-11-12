@@ -10,7 +10,6 @@ class FORMController {
         const currentPword = elementP.value;
         const validity = event.target.validity;
         if (word.length > 0 && currentPword === word) {
-            console.log("VALID NAAAAA")
             elementPR.classList.remove("pwordRepInvalid")
             elementPR.classList.add("pwordMatch")
             event.target.setCustomValidity("")
