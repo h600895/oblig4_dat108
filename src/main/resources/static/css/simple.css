@@ -660,6 +660,6 @@ input[type="password"].strongPassword {
   border-color: green;
 }
 
-.pwordMatch {
+input[type="text"]:valid, .pwordMatch {
   border-color: green;
 }

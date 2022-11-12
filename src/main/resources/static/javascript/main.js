@@ -6,18 +6,18 @@ const elementPR = document.getElementById("pwordRep");
 class FORMController {
 
     sjekkRepPassord(event) {
-        const word = elementPR;
+        const word = elementPR.value;
         const currentPword = elementP.value;
-
-        if (word.value.length > 0 && currentPword === word.value) {
-            elementPR.classList.remove("pwordMatch")
+        const validity = event.target.validity;
+        if (word.length > 0 && currentPword === word) {
+            console.log("VALID NAAAAA")
+            elementPR.classList.remove("pwordRepInvalid")
             elementPR.classList.add("pwordMatch")
+            event.target.setCustomValidity("")
         } else {
             elementPR.classList.remove("pwordMatch")
             event.target.setCustomValidity("Repetert passord er feil!")
         }
-
-
     }
 
     sjekkPassordStyrke(event) {
@@ -43,7 +43,6 @@ class FORMController {
 }
 
 function init () {
-
 
 
 
